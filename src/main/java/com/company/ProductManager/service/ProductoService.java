@@ -32,6 +32,9 @@ public class ProductoService {
 		ProductosMonitoreadosEntity entity = repository.findBySku(sku);
 		return new ProductoDTO(entity.getNombre(), entity.getSku(), entity.getStock(), entity.getUltimaRevision());
 	}
+	
+	//Primero se genera un numero aleatorio que se divide para encontrar si es divisible (% encuentra el resto de una division), luego se crea una instancia de calendario con la fecha actual
+	//se le añade o resta el tiempo correspondiente y despues se llama al repositorio para ejecutar una update.
 
 	public ProductoDTO check(int sku) {
 		int random = generateRandom();
